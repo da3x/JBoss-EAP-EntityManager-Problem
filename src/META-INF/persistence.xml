@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+   xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+        http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <persistence-unit name="eureka">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>        
+        <jta-data-source>java:/eurekaDatasource</jta-data-source>
+        <properties>
+            
+            <property name="hibernate.dialect"                          value="org.hibernate.dialect.Oracle12cDialect" />
+            <property name="hibernate.transaction.manager_lookup_class" value="org.hibernate.transaction.JBossTransactionManagerLookup" />
+            <property name="hibernate.default_batch_fetch_size"         value="1000" />
+            <property name="hibernate.jdbc.batch_size"                  value="0" />
+        
+            <!-- https://access.redhat.com/solutions/3906841 -->
+            <!-- JBoss EAP 7.2.x funktioniert bisher nur mit diesem Parameter... das gefällt mir aber nicht! -->
+            <property name="hibernate.allow_update_outside_transaction" value="true" />
+        
+            <property name="hibernate.connection.handling_mode"       value="DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT" />
+            <property name="hibernate.connection.SetBigStringTryClob" value="true" />
+            <property name="hibernate.integration.envers.enabled"     value="false" />
+
+        </properties>
+    </persistence-unit>
+
+</persistence>
