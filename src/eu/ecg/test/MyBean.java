@@ -24,8 +24,6 @@ public class MyBean implements Serializable {
     @ContainerManaged
     private EntityManager em2;
 
-    private String value;
-
     @Transactional
     public String save1() {
         System.out.println("MyBean.save1()");
@@ -40,29 +38,5 @@ public class MyBean implements Serializable {
         this.em2.flush(); // NOTE: needs Transaction!
         System.out.println("OK!");
         return VIEW_ID;
-    }
-
-    @Transactional
-    public String select1() {
-        System.out.println("MyBean.select1()");
-        this.em1.flush(); // NOTE: needs Transaction!
-        System.out.println("OK!");
-        return VIEW_ID;
-    }
-
-    @Transactional
-    public String select2() {
-        System.out.println("MyBean.select2()");
-        this.em2.flush(); // NOTE: needs Transaction!
-        System.out.println("OK!");
-        return VIEW_ID;
-    }
-
-    public String getValue() {
-        return this.value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
     }
 }

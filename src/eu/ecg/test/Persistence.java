@@ -15,10 +15,10 @@ public class Persistence implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @PersistenceUnit(unitName = "eureka")
+    @PersistenceUnit(unitName = "example")
     private EntityManagerFactory factory;
 
-    @PersistenceContext(unitName = "eureka")
+    @PersistenceContext(unitName = "example")
     private EntityManager em;
 
     /**

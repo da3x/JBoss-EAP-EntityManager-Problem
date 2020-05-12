@@ -1,53 +1,26 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-    xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:h="http://xmlns.jcp.org/jsf/html"
-    xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
 <head>
-    <meta charset="UTF-8" />
-    <title>A1E-3061</title>
+<meta charset="UTF-8" />
+<title>A1E-3061</title>
 </head>
 <body>
 
-    <h1>Simple FORM</h1>
-    
+    <h1>Reproducible</h1>
+
+    <p>
+        Both buttons trigger an action annotated with <strong>@Transactional</strong>. While both methods worked with <strong>EAP 7.1.x</strong> one of them now fails with <strong>EAP 7.2.x
+            or 7.3.x</strong>!
+    </p>
+
+    <h2>This one fails with an TransactionRequiredException!</h2>
     <h:form>
-        <h:inputText p:placeholder="Test" value="#{myBean.value}" />
-        <h:commandButton value="Flush EntityManager #1 (Application-managed)" action="#{myBean.save1()}" />
-        <h:commandButton value="Flush EntityManager #2 (Container-managed)"   action="#{myBean.save2()}" />
+        <h:commandButton value="Flush EntityManager #1 (Application-managed)" action="#{myBean.save1()}" style="font-size:1rem; padding:10px; background-color:#f008;" />
     </h:form>
-    
-    <h1>FORM with Table</h1>
-    
+
+    <h2>This one works as expected!</h2>
     <h:form>
-        <table>
-            <thead>
-                <tr>
-                    <th>Col1</th>
-                    <th>Col2</th>
-                    <th>Col3</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><h:commandButton value="#1 (AM)" action="#{myBean.select1()}" /></td>
-                    <td>Col2</td>
-                    <td><h:commandButton value="#1 (CM)" action="#{myBean.select2()}" /></td>
-                </tr>
-                <tr>
-                    <td><h:commandButton value="#2 (AM)" action="#{myBean.select1()}" /></td>
-                    <td>Col2</td>
-                    <td><h:commandButton value="#2 (CM)" action="#{myBean.select2()}" /></td>
-                </tr>
-                <tr>
-                    <td><h:commandButton value="#3 (AM)" action="#{myBean.select1()}" /></td>
-                    <td>Col2</td>
-                    <td><h:commandButton value="#3 (CM)" action="#{myBean.select2()}" /></td>
-                </tr>
-            </tbody>
-        </table>
+        <h:commandButton value="Flush EntityManager #2 (Container-managed)" action="#{myBean.save2()}" style="font-size:1rem; padding:10px; background-color:#0a08;" />
     </h:form>
 
 </body>
