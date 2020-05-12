@@ -14,8 +14,9 @@
     <h1>Simple FORM</h1>
     
     <h:form>
-        <h:inputText p:placeholder="Test" />
-        <h:commandButton value="Submit" action="#{myBean.save()}" />
+        <h:inputText p:placeholder="Test" value="#{myBean.value}" />
+        <h:commandButton value="Flush EntityManager #1 (Application-managed)" action="#{myBean.save1()}" />
+        <h:commandButton value="Flush EntityManager #2 (Container-managed)"   action="#{myBean.save2()}" />
     </h:form>
     
     <h1>FORM with Table</h1>
@@ -31,19 +32,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><h:commandButton value="#1" action="#{myBean.select()}" /></td>
+                    <td><h:commandButton value="#1 (AM)" action="#{myBean.select1()}" /></td>
                     <td>Col2</td>
-                    <td>Col3</td>
+                    <td><h:commandButton value="#1 (CM)" action="#{myBean.select2()}" /></td>
                 </tr>
                 <tr>
-                    <td><h:commandButton value="#2" action="#{myBean.select()}" /></td>
+                    <td><h:commandButton value="#2 (AM)" action="#{myBean.select1()}" /></td>
                     <td>Col2</td>
-                    <td>Col3</td>
+                    <td><h:commandButton value="#2 (CM)" action="#{myBean.select2()}" /></td>
                 </tr>
                 <tr>
-                    <td><h:commandButton value="#3" action="#{myBean.select()}" /></td>
+                    <td><h:commandButton value="#3 (AM)" action="#{myBean.select1()}" /></td>
                     <td>Col2</td>
-                    <td>Col3</td>
+                    <td><h:commandButton value="#3 (CM)" action="#{myBean.select2()}" /></td>
                 </tr>
             </tbody>
         </table>

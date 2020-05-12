@@ -17,7 +17,7 @@
         
             <!-- https://access.redhat.com/solutions/3906841 -->
             <!-- JBoss EAP 7.2.x funktioniert bisher nur mit diesem Parameter... das gefällt mir aber nicht! -->
-            <property name="hibernate.allow_update_outside_transaction" value="true" />
+            <property name="hibernate.allow_update_outside_transaction" value="false" />
         
             <property name="hibernate.connection.handling_mode"       value="DELAYED_ACQUISITION_AND_RELEASE_AFTER_STATEMENT" />
             <property name="hibernate.connection.SetBigStringTryClob" value="true" />
