@@ -26,8 +26,8 @@ public class Persistence implements Serializable {
      */
     @Produces
     @ApplicationManaged
-    public EntityManager applicationManagedConversationScoped() {
-        System.out.println("Persistence.applicationManagedConversationScoped()");
+    public EntityManager applicationManaged() {
+        System.out.println("Persistence.applicationManaged()");
         return this.factory.createEntityManager();
     }
 

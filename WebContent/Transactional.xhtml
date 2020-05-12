@@ -15,12 +15,12 @@
 
     <h2>This one fails with an TransactionRequiredException!</h2>
     <h:form>
-        <h:commandButton value="Flush EntityManager #1 (Application-managed)" action="#{myBean.save1()}" style="font-size:1rem; padding:10px; background-color:#f008;" />
+        <h:commandButton value="Flush EntityManager #1 (Application-managed)" action="#{myBean.save1()}" style="font-size:1rem; padding:.5rem 1rem; background-color:#f008;" />
     </h:form>
 
     <h2>This one works as expected!</h2>
     <h:form>
-        <h:commandButton value="Flush EntityManager #2 (Container-managed)" action="#{myBean.save2()}" style="font-size:1rem; padding:10px; background-color:#0a08;" />
+        <h:commandButton value="Flush EntityManager #2 (Container-managed)" action="#{myBean.save2()}" style="font-size:1rem; padding:.5rem 1rem; background-color:#0a08;" />
     </h:form>
 
 </body>

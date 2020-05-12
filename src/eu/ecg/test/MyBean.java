@@ -2,14 +2,12 @@ package eu.ecg.test;
 
 import java.io.Serializable;
 
-import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 @Named
-@ConversationScoped
 public class MyBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
